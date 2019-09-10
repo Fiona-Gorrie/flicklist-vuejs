@@ -25,6 +25,7 @@
         TODO 7
         Make an <li> for each movie in watchList
         -->
+        <li v-for="movie in watchList"></li>
       </ul>
     </section>
 
@@ -35,6 +36,15 @@
     It should display "Browse Movies" in large text
     It should contain an empty unordered list
     -->
+    <section id="section-browse">
+      <h2>Browse Movies</h2>
+      <ul>
+          <li v-for="movie in browseItems">
+            <button type="button" id="addToWatchlist" onclick="watchedMovie(movie)">Add to Watchlist</button>
+              {{ movie.title }}
+            </li>
+      </ul>
+    </section>
     <!--
     TODO 3
     Inside the unordered list in your new "section-browse",
