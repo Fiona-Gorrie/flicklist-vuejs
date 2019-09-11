@@ -1,7 +1,7 @@
 
 var api = {
   root: "https://api.themoviedb.org/3",
-  token:""
+  token:"46a973a92ac740a923e7e22fab1f5b93"
 }
 
 var flicklistView = new Vue({
@@ -38,9 +38,9 @@ var flicklistView = new Vue({
 		// make a method to use when a "Add to Watchlist" button is clicked
 		// It should accept a movie as a parameter, and add that item to
 		// the watchlistItems list,
-		watchedMovie(movie) {
-		return watchlistItems += movie	
-		}
+		watchedMovie: function (movie) {
+			this.watchlistItems.push(movie);
+		},
 			
 	},
 	mounted: function() {

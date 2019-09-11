@@ -25,7 +25,7 @@
         TODO 7
         Make an <li> for each movie in watchList
         -->
-        <li v-for="movie in watchList"></li>
+        <li v-for="movie in watchlistItems">{{movie.title}}</li>
       </ul>
     </section>
 
@@ -40,7 +40,7 @@
       <h2>Browse Movies</h2>
       <ul>
           <li v-for="movie in browseItems">
-            <button type="button" id="addToWatchlist" onclick="watchedMovie(movie)">Add to Watchlist</button>
+            <button type="button" id="addToWatchlist" @click="watchedMovie(movie)">Add to Watchlist</button>
               {{ movie.title }}
             </li>
       </ul>
