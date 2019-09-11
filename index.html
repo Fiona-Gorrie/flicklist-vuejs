@@ -23,8 +23,9 @@
 
       <ul>
           <!-- TODO 3 the li tag should have an "item-watchlist" class -->
-          <li v-for="title in watchlistItems">
-          <p>{{ title }}</p>
+          <li v-for="movie in watchlistItems" 
+          class="item-watchlist">
+          <p>{{ movie.title }}</p>
         </li>
       </ul>
     </section>
@@ -37,6 +38,17 @@
           TODO 6
           add a <form> here for users to search for movies by title
         -->
+
+        <!-- You can use the v-model directive to create two-way data 
+          bindings on form input, textarea, and select elements. 
+          It automatically picks the correct way to update the element 
+          based on the input type. Although a bit magical, v-model is 
+          essentially syntax sugar for updating data on user input events, 
+          plus special care for some edge cases.-->
+        <form>
+          <input type="text" v-model="searchTerm" />
+          <input type="submit" value="search" @click.prevent="searchMovies(searchTerm)" />
+        </form>
       </header>
 
       <ul>
@@ -49,10 +61,12 @@
             The button should be disabled if this movie
             is already in the user's watchlist
           -->
-          <button @click="addToWatchlist(movie)">
+          <button @click="addToWatchlist(movie)" 
+          :disabled="watchlistItems.includes(movie)">
             Add to Watchlist
           </button>
 
+          <p>{{ movie.overview }}</p>
           <!--
             TODO 1
             Create a paragraph containing the movie object's
